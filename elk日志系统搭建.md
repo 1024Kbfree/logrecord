@@ -175,4 +175,29 @@ curl  -H "Content-Type: application/json;charset=UTF-8" -XPUT '47.118.47.184:920
     }
 }'
 ```
+### log4j2整合elk配置信息
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF" monitorInterval="60">
+    <Appenders>
+        <!-- Console 日志，只输出 level 及以上级别的信息，并配置各级别日志输出颜色 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%highlight{%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %M() @%L - %msg%n}{FATAL=Bright Red, ERROR=Bright Magenta, WARN=Bright Yellow, INFO=Bright Green, DEBUG=Bright Cyan, TRACE=Bright White}"/>
+        </Console>
+        <!-- socket 日志，输出日志到 Logstash 中做日志收集 -->
+        <Socket name="Socket" host="47.118.47.184" port="9600" protocol="TCP">
+            <JsonLayout properties="true" compact="true" eventEol="true" />
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %M() @%L - %msg%n"/>
+        </Socket>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <appender-ref ref="Socket"/>
+            <appender-ref ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
+```
 
