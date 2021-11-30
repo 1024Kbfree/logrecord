@@ -17,17 +17,18 @@ import org.dom4j.DocumentHelper;
 public class Test
 {
     public static void main(String[] args) throws IOException, DocumentException {
-        String filepath = "D:\\IdeaWorkSpace\\logrecord\\pom.xml";
+        String filepath = "D:\\IdeaWorkSpace\\logrecord\\2.xml";
         File file = new File(filepath);
         String data = FileUtils.readFileToString(file, "UTF-8");
         InputStream inputStrem = new ByteArrayInputStream(data.getBytes());
         UnicodeReader ur = new UnicodeReader(inputStrem, "UTF-8");
         BufferedReader br = new BufferedReader(ur);
+        StringBuilder sb = new StringBuilder("");
         String str = null;
         while((str=br.readLine())!=null){
-
+            sb.append(str+"\n");
         }
-
+        System.out.println(sb);
 
 
     }
