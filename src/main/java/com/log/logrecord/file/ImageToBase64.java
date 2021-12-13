@@ -9,7 +9,7 @@ import java.io.*;
  */
 public class ImageToBase64 {
     public static void main(String[] args) throws IOException {
-        String imgPath = "D:\\IdeaWorkSpace\\logrecord\\img.png";
+        String imgPath = "D:\\IdeaWorkSpace\\logrecord\\16pic_463801_s.png";
         System.out.println(covertImgToBase64(imgPath));
     }
 
