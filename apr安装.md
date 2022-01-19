@@ -16,9 +16,9 @@ https://downloads.apache.org/apr/
 
 ```shell
 cd /opt/software
-wget https://downloads.apache.org/apr/apr-1.6.2.tar.gz
-tar zxf apr-1.6.2.tar.gz
-cd apr-1.6.2.tar.gz
+wget https://downloads.apache.org/apr/apr-1.6.5.tar.gz
+tar zxf apr-1.6.5.tar.gz
+cd apr-1.6.5.tar.gz
 ./configure --prefix=/usr/local/apr&&make&&make install
 ```
 
