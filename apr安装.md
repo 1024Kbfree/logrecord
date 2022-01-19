@@ -52,6 +52,7 @@ vi /etc/profile
 添加变量：
 export LD_LIBARARY_PATH=$LD_LIBARARY_PATH:/usr/local/apr/lib
 source /etc/profile
+启动脚本添加apr依赖路径
 java -Djava.library.path=/usr/local/apr/lib -jar logrecord-0.0.1-SNAPSHOT.jar
 ```
 
