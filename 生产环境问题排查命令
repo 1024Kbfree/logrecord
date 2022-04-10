@@ -1,0 +1,6 @@
+top -c
+top -h pid
+生成日志
+jstackpid >pid.log
+查看gc情况  print 50 time every 200ms
+jstat -gcutil pid 200 50

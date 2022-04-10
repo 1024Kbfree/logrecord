@@ -16,9 +16,9 @@ https://downloads.apache.org/apr/
 
 ```shell
 cd /opt/software
-wget https://downloads.apache.org/apr/apr-1.6.2.tar.gz
-tar zxf apr-1.6.2.tar.gz
-cd apr-1.6.2.tar.gz
+wget https://downloads.apache.org/apr/apr-1.6.5.tar.gz
+tar zxf apr-1.6.5.tar.gz
+cd apr-1.6.5.tar.gz
 ./configure --prefix=/usr/local/apr&&make&&make install
 ```
 
@@ -39,7 +39,7 @@ cd ..
 wget https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.31/source/tomcat-native-1.2.31-src.tar.gz
 cd tomcat-native-1.2.31-src/native
 echo $JAVA_HOME
-注意：下面的java_home后面的路径/usr/local/java/jdk1.8.0_221为本机java安装路径
+注意：下面的java_home后面的路径/usr/local/java/jdk1.8.0_221为本机java安装路径,请自行替换成自己机器上的javaHome地址
 ./configure --with-apr=/usr/local/apr --with-java-home=/usr/local/java/jdk1.8.0_221&&make&&make install
 ```
 
@@ -52,6 +52,7 @@ vi /etc/profile
 添加变量：
 export LD_LIBARARY_PATH=$LD_LIBARARY_PATH:/usr/local/apr/lib
 source /etc/profile
+启动脚本添加apr依赖路径start.sh
 java -Djava.library.path=/usr/local/apr/lib -jar logrecord-0.0.1-SNAPSHOT.jar
 ```
 
